@@ -9,6 +9,9 @@
 #include "smach.h"
 #include "backend.h"
 
+int yylex(void);
+void yyerror(const char *s);
+
 SMV checknumU(SMV, int);
 SMV checknumS(SMV, int);
 SMV checknumW(SMV, int);
@@ -216,7 +219,7 @@ header : error
 			errormsg("Can't find include file %s", $2); }
        | conditional { if(!$1) falseclause=1;  } cond_block T_ENDC
 	{ if(!$1) falseclause=0; }
-       | T_LABEL T_MACRO 
+       | T_LABEL T_MACRO
 		{ if(!(label=create_symbol($1, SYMB_MACRO))) YYERROR; }
 	 T_MBODY T_ENDM
 		{ label->value.macro=$4; }
@@ -233,7 +236,7 @@ pseudo
        | T_CNOP const_expr T_COMMA const_expr { smach_cnop($2, $4); }
 
 cond_block : cond_block statement
-	   | 
+	   |
 
 conditional
 	: T_IFD T_SYMBOL { $$ = !!lookup_symbol($2); }

@@ -1,0 +1,16 @@
+# Build output
+build/
+
+# macOS
+.DS_Store
+
+# Bison/flex generated sources
+src/gram.c
+src/lexer.c
+src/y.output
+
+# Bison generated header (goes to include/ when run manually)
+include/gram.h
+
+# Sieve-generated header
+include/hashsize.h

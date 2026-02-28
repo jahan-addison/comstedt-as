@@ -2,7 +2,7 @@ CC = gcc
 LEX = flex
 YACC = bison -y
 RM = rm -f
-CFLAGS = -g -Wall -pedantic -DDEBUG -DDEBUG_MALLOC # -O4711
+CFLAGS = -g -DDEBUG -DDEBUG_MALLOC # -O4711
 
 TARGET = aslc86k
 HASHSIZE = 12000
@@ -31,7 +31,7 @@ lexer.c : lexer.l
 	$(LEX) -t $^ > $@
 
 gram.c gram.h : gram.y
-	$(YACC) -d -v $^ 
+	$(YACC) -d -v $^
 	mv y.tab.c gram.c
 	mv y.tab.h gram.h
 
