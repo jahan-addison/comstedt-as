@@ -1,4 +1,4 @@
-# comstedt-as
+# aslc86k-mc
 
 A fork of the macro assembler written in ANSI-C for the Dreamcast's Visual Memory System by Marcus Comstedt.
 
